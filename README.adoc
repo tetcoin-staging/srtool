@@ -1,5 +1,5 @@
 :name: paritytech/srtool
-:rsversion: nightly-2020-09-22
+:rsversion: nightly-2020-10-27
 :toc:
 :sectnums:
 
@@ -225,5 +225,5 @@ So say you want to build a builder for rustc nightly-2020-03-12:
 
 [subs="attributes+"]
 ----
-    RUSTC_VERSION=nightly-2020-03-12 && docker build --build-arg RUSTC_VERSION=$RUSTC_VERSION -t paritytech/srtool:$RUSTC_VERSION .
+    RUSTC_VERSION=nightly-2020-10-27 && docker build --build-arg RUSTC_VERSION=$RUSTC_VERSION -t paritytech/srtool:$RUSTC_VERSION .
 ----
