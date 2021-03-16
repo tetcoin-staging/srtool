@@ -17,7 +17,7 @@ COPY ./scripts/init.sh /srtool/
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install --no-install-recommends -y \
-        cmake pkg-config libssl-dev \
+        cmake pkg-config libssl-dev make \
         git clang bsdmainutils jq ca-certificates curl && \
     curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain $RUSTC_VERSION -y && \
     rm -rf /var/lib/apt/lists/*
@@ -38,5 +38,8 @@ RUN  export PATH=/cargo-home/bin:/rustup-home:$PATH && \
 # we copy those only at the end which makes testing of new scripts faster as the other layers are cached
 COPY ./scripts/* /srtool/ 
 COPY VERSION /srtool/
+COPY RUSTC_VERSION /srtool/
+
+WORKDIR /srtool
 
 CMD ["/srtool/build"]
